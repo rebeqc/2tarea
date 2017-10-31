@@ -39,7 +39,7 @@
       osm.addTo(mapa);
 	    
       // retorna un color con base en la densidad poblacional
-      function color2(d) {
+      function color(d) {
 	return d > 60 ? '#d7191c' :
 	       d > 40 ? '#fec980' :
 	       d > 20 ? '#c7e6db' :
@@ -98,7 +98,6 @@
       poblacion.addTo(mapa);
 	    
 	    
-	    
       function infoPresencia(feature, layer) {
 	var popupContent = "";
 	if (feature.properties && feature.properties.scientif_1) {
@@ -106,8 +105,7 @@
 	}
 	layer.bindPopup(popupContent);
       }	    
-	    
-	    
+	      
       registrosPresencia = L.geoJson(regpresencia, {
         style: function (feature) {
 	  return {

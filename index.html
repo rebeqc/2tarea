@@ -37,7 +37,7 @@
       });    
       osm.addTo(mapa);
 	    
-      // retorna un color con base en la cantidad de especies
+      // retorna un color con base en la densidad poblacional
       function color(d) {
 	return d > 60 ? '#d7191c' :
 	       d > 40 ? '#fec980' :
@@ -69,6 +69,23 @@
 	onEachFeature: infoRiqueza
       })
       riqueza.addTo(mapa);
+	    
+      var poblacion = L.geoJson(denpoblacional, {
+	 style: function (feature) {
+	   return {
+              weight: 2,
+	      opacity: 1,
+	      color: 'red',
+	      dashArray: '3',
+	      fillOpacity: 0.7,
+	      fillColor: color(feature.properties.poblacion)
+	   };
+         },
+	    
+	 on EachFeature: infoPoblacion
+         })
+      poblacion.addTo(mapa);
+	    
 	    
 	    
       function infoPresencia(feature, layer) {
